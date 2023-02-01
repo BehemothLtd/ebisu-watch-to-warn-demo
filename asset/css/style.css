@@ -46,7 +46,7 @@ table {
 
 :root{
     --gray-1: #171E28;
-    --gray-2: #031019;
+    --gray-2: rgba(3, 16, 25, 0.08);
     --gray-3: #848E9C;
     --white: white;
     --active: #833CF7;
