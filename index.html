@@ -5,7 +5,7 @@
     <title>Webpack App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="./asset/css/style.css">
-    <script defer="defer" src="./index.js"></script>
+    <script defer="defer" src="/index.js"></script>
 </head>
 <body>
 <header>
@@ -26,6 +26,7 @@
 <div class="container">
     <nav>
         <ul>
+            <li onclick="pushEventToken()">pushEvent</li>
             <li><img src="./asset/image/nav-game.png" alt=""> <span>ESPORTS</span></li>
             <li><img src="./asset/image/nav-stream.png" alt=""> <span>STREAMERS</span></li>
             <li><img src="./asset/image/nav-sport.png" alt=""> <span>SPORTS</span></li>
@@ -34,7 +35,7 @@
         </ul>
     </nav>
     <article>
-        <div id="livestream"></div>
+        <div data-token="{token}" data-page="" data-game="gameId" id="twitchElement"></div>
         <div class="form-login" style="display: none"><h3>JOIN NOW</h3><span
                 class="description">Earn <span>10% APR</span> on all coins</span>
             <div class="form-data"><input> <input type="password"> <input type="password"> <input type="email">
@@ -88,3 +89,13 @@
 </footer>
 </body>
 </html>
+<script>
+    window.addEventListener("claim", function () {
+    console.log("Receive event from vue app")
+})
+
+function pushEventToken() {
+    window.dispatchEvent(new CustomEvent("pushEvent", {
+        detail: {name: "John"}
+    }))
+}</script>
